@@ -2,7 +2,7 @@
 
 // 1. Array of contact objects
 const contacts = [
-  { name: "Amina Yusuf", phone: "08031234567", relationship: "friend" },
+  { name: "Yunus Fawaz", phone: "09020269841", relationship: "friend" },
   { name: "Tunde Bello", phone: "08029876543", relationship: "family" },
   { name: "Chioma Okafor", phone: "07065432109", relationship: "colleague" },
   { name: "Ibrahim Musa", phone: "09012345678", relationship: "friend" },
@@ -16,11 +16,14 @@ function findByRelationship(list, relationship) {
     (contact) => contact.relationship === relationship.toLowerCase()
   );
 }
+console.log("Friends:", findByRelationship(contacts, "friend"));
 
 // 3. Return just the names
 function getNames(list) {
   return list.map((contact) => contact.name);
 }
+console.log("All names:", getNames(contacts));
+console.log("Family names:", getNames(findByRelationship(contacts, "family")));
 
 // 4. Fetch a random joke safely
 async function fetchRandomJoke() {
@@ -40,9 +43,4 @@ async function fetchRandomJoke() {
     console.error("Could not fetch joke:", error.message);
   }
 }
-
-// Demo
-console.log("Friends:", findByRelationship(contacts, "friend"));
-console.log("All names:", getNames(contacts));
-console.log("Family names:", getNames(findByRelationship(contacts, "family")));
 fetchRandomJoke();
